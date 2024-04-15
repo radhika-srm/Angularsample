@@ -13,6 +13,32 @@
         <input type="password" id="password" name="password"><br><br>
         <input type="submit" value="Login">
     </form>
-        </div>
+       
+    <script>
+        // Handle form submission
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            // Submit form data using fetch API
+            fetch('https://htmlappfun.azurewebsites.net/api/HttpTrigger1', {
+                method: 'POST',
+                body: new FormData(document.getElementById('loginForm'))
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Redirect to welcome page upon successful login
+                    window.location.href = "https://htmlappfun.azurewebsites.net";
+                } else {
+                    // Handle error response (e.g., display error message)
+                    alert("Invalid username or password");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
+
     </body>
 </html>
