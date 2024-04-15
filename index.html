@@ -6,7 +6,7 @@
         <a href="/static2.html">Another Static page</a>
         <div>
         <h2>Login Form</h2>
-        <form id="loginForm" action="https://htmlappfun.azurewebsites.net" method="post">
+        <form id="loginForm" action="https://htmlappfun.azurewebsites.net/api/HttpTrigger1" method="post">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br>
         <label for="password">Password:</label><br>
@@ -26,7 +26,7 @@
             .then(response => {
                 if (response.ok) {
                     // Redirect to welcome page upon successful login
-                    window.location.href = "https://htmlappfun.azurewebsites.net";
+                    window.location.href = "https://jolly-mushroom-0806bb203.5.azurestaticapps.net";
                 } else {
                     // Handle error response (e.g., display error message)
                     alert("Invalid username or password");
