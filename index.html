@@ -20,6 +20,7 @@
             event.preventDefault(); // Prevent default form submission
             // Submit form data using fetch API
             fetch('https://htmlappfun.azurewebsites.net/api/HttpTrigger1', {
+                alert('hi');
                 method: 'POST',
                 body: new FormData(document.getElementById('loginForm'))
             })
