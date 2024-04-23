@@ -13,30 +13,13 @@
         <input type="password" id="password" name="password"><br><br>
         <input type="submit" value="Login">
     </form>
-       
+       <p>Loading content from the API: <b id="responsemsg">...</b></p>
     <script>
         // Handle form submission
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent default form submission
-            // Submit form data using fetch API
-            fetch('https://htmlappfun.azurewebsites.net/api/HttpTrigger1', {
-                alert('hi');
-                method: 'POST',
-                body: new FormData(document.getElementById('loginForm'))
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Redirect to welcome page upon successful login
-                    window.location.href = "https://jolly-mushroom-0806bb203.5.azurestaticapps.net";
-                } else {
-                    // Handle error response (e.g., display error message)
-                    alert("Invalid username or password");
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
+       (async function() {
+        const { text } = await( await fetch(`/api/HttpTriggerhtml`)).json();
+        document.querySelector('#responsemsg').textContent = text;
+    }());
     </script>
 </body>
 </html>
