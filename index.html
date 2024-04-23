@@ -17,7 +17,7 @@
     <script>
         // Handle form submission
        (async function() {
-        const { text } = await( await fetch(`/api/HttpTriggerhtml`)).json();
+        const { text } = await( await fetch(`https://htmlappfun.azurewebsites.net/api/HttpTriggerhtml`)).json();
         document.querySelector('#responsemsg').textContent = text;
     }());
     </script>
